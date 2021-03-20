@@ -16,7 +16,6 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter @Setter
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,6 +29,9 @@ public class Book {
 
     @Column(name="price")
     private Double price;
+
+    @Column(name="rate")
+    private Double rate;
 
     @Column(name="categoryId")
     private Long categoryId;

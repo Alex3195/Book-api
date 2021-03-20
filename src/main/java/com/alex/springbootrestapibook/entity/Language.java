@@ -16,7 +16,6 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter @Setter
 public class Language {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

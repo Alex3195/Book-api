@@ -3,9 +3,10 @@ package com.alex.springbootrestapibook.controller;
 import java.util.List;
 
 import com.alex.springbootrestapibook.model.AuthorModel;
-import com.alex.springbootrestapibook.model.AuthorWithBook;
-import com.alex.springbootrestapibook.service.AuthorService;
+import com.alex.springbootrestapibook.model.AuthorWithBookModel;
 
+import com.alex.springbootrestapibook.service.AuthorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,11 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/authors")
 public class AuthorController {
-    private final AuthorService authorService;
-
-    public AuthorController(AuthorService authorService) {
-        this.authorService = authorService;
-    }
+    @Autowired
+    private AuthorService authorService;
 
     @GetMapping
     public ResponseEntity<List<AuthorModel>> getAllAuthors() {
@@ -29,8 +27,8 @@ public class AuthorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<AuthorWithBook> getAuthorWithBook(@PathVariable Long id) {
-        return ResponseEntity.ok(authorService.getAuthorByIdWithBook(id));
+    public ResponseEntity<AuthorWithBookModel> getAuthorWithBook(@PathVariable Long id) {
+        return ResponseEntity.ok(authorService.getAuthorByIdWithBooks(id));
     }
 
     @PostMapping

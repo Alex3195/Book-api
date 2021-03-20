@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthorWithBook extends AuthorModel {
+public class AuthorWithBookModel extends AuthorModel {
     private List<BookModel> bookList;
 
-    public AuthorWithBook(Long id, String name, List<BookModel> books) {
+    public AuthorWithBookModel(Long id, String name, List<BookModel> books) {
         super(id, name);
         this.bookList = books;
     }

@@ -18,14 +18,12 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
-    @Column(name = "bookId")
+    @Column(name = "book_id")
     private Long bookId;
 
     @Column(name = "content")
@@ -33,4 +31,7 @@ public class Comment {
 
     @Column(name = "time")
     private Timestamp time;
+
+    @Column(name = "user_id")
+    private Long userId;
 }
